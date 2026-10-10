@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt" data-page="legal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidade e cookies | Digital Montra</title>
+  <meta name="description" content="Como a Digital Montra trata os seus dados pessoais e que cookies e armazenamento local usa este site.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0E2A47">
+  <meta property="og:title" content="Política de privacidade e cookies | Digital Montra">
+  <meta property="og:description" content="Como a Digital Montra trata os seus dados pessoais e que cookies e armazenamento local usa este site.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/karla-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip" href="#conteudo" data-i18n="skip">Saltar para o conteúdo</a>
+
+  <header class="site-header" data-solid>
+    <nav class="nav wrap" aria-label="Principal">
+      <a class="brand" href="/">
+        <img src="assets/emblem.png" alt="" width="40" height="40">
+        <span>DIGITAL<br>MONTRA</span>
+      </a>
+      <div class="nav-actions">
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn-primary btn-sm" href="/" data-i18n="legal.back">Voltar ao site</a>
+      </div>
+    </nav>
+    <div class="progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="conteudo" class="wrap-narrow legal">
+    <header class="legal-head">
+      <h1 data-i18n="legal.title">Política de privacidade e cookies</h1>
+      <p class="note" data-i18n="legal.updated">Última atualização: 7 de outubro de 2026</p>
+    </header>
+    <div class="legal-list" data-list="legal.sections" data-noreveal></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="brand brand-light">
+        <img src="assets/emblem-white.png" alt="" width="44" height="44">
+        <span>DIGITAL MONTRA<small>WEB STUDIO</small></span>
+      </div>
+      <div class="footer-legal">
+        <p>© <span id="year">2026</span> Digital Montra Web Studio · Algarve, Portugal</p>
+        <p class="footer-legal-links">
+          <button type="button" class="link-btn" data-cookie-settings data-i18n="cookie.settings">Definições de cookies</button>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookie" role="region" aria-labelledby="cookie-title" hidden>
+    <div class="cookie-main">
+      <h2 id="cookie-title" data-i18n="cookie.title">Cookies e privacidade</h2>
+      <p data-i18n="cookie.text">Usamos apenas o armazenamento necessário para o site funcionar (por exemplo, lembrar o idioma). Pode aceitar ou recusar o armazenamento opcional, e alterar a sua escolha em qualquer altura.</p>
+      <p><a href="politica-de-privacidade" data-i18n="cookie.policy">Política de privacidade e cookies</a></p>
+    </div>
+    <div class="cookie-prefs" id="cookie-prefs" hidden>
+      <div class="cookie-opt">
+        <div><strong data-i18n="cookie.necessary.t">Necessários</strong><p data-i18n="cookie.necessary.d">Guardam o idioma e a sua escolha sobre cookies. O site não funciona bem sem eles.</p></div>
+        <label class="switch"><input type="checkbox" checked disabled><span class="switch-ui" aria-hidden="true"></span><span class="sr-only" data-i18n="cookie.always">Sempre ativos</span></label>
+      </div>
+      <div class="cookie-opt">
+        <div><strong data-i18n="cookie.stats.t">Estatísticas</strong><p data-i18n="cookie.stats.d">Medem as visitas de forma agregada. Neste momento o site não usa nenhuma ferramenta de estatísticas; esta opção só passa a aplicar-se se vier a ser ativada.</p></div>
+        <label class="switch"><input type="checkbox" id="cookie-stats"><span class="switch-ui" aria-hidden="true"></span><span class="sr-only" data-i18n="cookie.stats.t">Estatísticas</span></label>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-reject" data-i18n="cookie.reject">Recusar opcionais</button>
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-custom" aria-expanded="false" aria-controls="cookie-prefs" data-i18n="cookie.customize">Personalizar</button>
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-save" hidden data-i18n="cookie.save">Guardar escolha</button>
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-accept" data-i18n="cookie.accept">Aceitar todos</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
