@@ -17,6 +17,7 @@ const I18N = {
   pt: {
     skip: 'Saltar para o conteúdo',
     wa: 'Falar connosco no WhatsApp',
+    motion: { pause: 'Pausar animações' },
     cookie: {
       title: 'Cookies e privacidade',
       text: 'Usamos apenas o armazenamento necessário para o site funcionar (por exemplo, lembrar o idioma). Pode aceitar ou recusar o armazenamento opcional, e alterar a sua escolha em qualquer altura.',
@@ -116,9 +117,9 @@ const I18N = {
       name: 'O seu nome', business: 'Nome do negócio', businessPh: 'Ex.: Restaurante O Pescador',
       activity: 'Atividade do negócio', activityPh: 'Ex.: restaurante, alojamento local, loja, serviços',
       email: 'Email ou telefone', message: 'Quer acrescentar algo? (opcional)',
-      send: 'Quero o meu rascunho grátis', promise: 'Rascunho gratuito em 48 horas. Sem compromisso.',
+      send: 'Pedir proposta grátis', promise: 'Rascunho gratuito em 48 horas. Sem compromisso.',
       privacy: 'Usamos os seus dados apenas para responder ao seu pedido.', privacyLink: 'Política de privacidade',
-      error: 'Preencha o nome do negócio, a atividade, o seu nome e um email ou telefone.',
+      errors: { business: 'Indique o nome do negócio.', activity: 'Indique a atividade do negócio.', name: 'Indique o seu nome.', reply: 'Indique um email ou telefone válido para podermos responder.' },
       thanks: 'Obrigado!', thanksSub: 'Recebemos o seu pedido e entraremos em contacto em breve.', again: 'Enviar outro pedido',
       mailSubject: 'Pedido de proposta'
     }
@@ -126,6 +127,7 @@ const I18N = {
   en: {
     skip: 'Skip to content',
     wa: 'Chat with us on WhatsApp',
+    motion: { pause: 'Pause animations' },
     cookie: {
       title: 'Cookies and privacy',
       text: 'We only use the storage the site needs to work (for example, remembering your language). You can accept or refuse optional storage, and change your choice at any time.',
@@ -225,9 +227,9 @@ const I18N = {
       name: 'Your name', business: 'Business name', businessPh: 'E.g. O Pescador Restaurant',
       activity: 'Business activity', activityPh: 'E.g. restaurant, holiday rental, shop, services',
       email: 'Email or phone', message: 'Anything to add? (optional)',
-      send: 'Get my free draft', promise: 'Free draft in 48 hours. No strings attached.',
+      send: 'Get a free proposal', promise: 'Free draft in 48 hours. No strings attached.',
       privacy: 'We only use your details to reply to your request.', privacyLink: 'Privacy policy',
-      error: 'Enter your business name, what you do, your name and an email or phone number.',
+      errors: { business: 'Enter your business name.', activity: 'Enter your business activity.', name: 'Enter your name.', reply: 'Enter a valid email or phone number so we can reply.' },
       thanks: 'Thank you!', thanksSub: 'We have received your request and will be in touch soon.', again: 'Send another request',
       mailSubject: 'Proposal request'
     }
@@ -318,7 +320,20 @@ function setLang(lang) {
   });
   splitHeadline();
   observeReveals();
+  renderFormError();
   try { localStorage.setItem('dm-lang', currentLang); } catch (e) { /* sem armazenamento */ }
+}
+
+/* Pausar as animações contínuas (faixa e painel da portada), WCAG 2.2.2.
+   O botão mantém sempre o mesmo nome; o estado vai em aria-pressed. */
+function initMotionToggle() {
+  const b = document.getElementById('motion-toggle');
+  if (!b) return;
+  b.addEventListener('click', () => {
+    const paused = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', String(paused));
+    document.body.classList.toggle('motion-paused', paused);
+  });
 }
 
 /* Título do hero: cada palavra sobe a partir de uma máscara. */
@@ -465,25 +480,64 @@ function initMotion() {
 /* Formulário: abre o email do visitante com o pedido preenchido.
    Para receber pedidos sem depender do email do visitante, ligar a um serviço
    como Formspree ou Netlify Forms (ver CLAUDE.md). */
+let formErrorKey = null;
+const FIELD_IDS = { business: 'f-biz', activity: 'f-act', name: 'f-name', reply: 'f-mail' };
+const looksLikeContact = (v) => /\S+@\S+\.\S+/.test(v) || v.replace(/\D/g, '').length >= 7;
+
+function renderFormError() {
+  const el = document.getElementById('form-error');
+  if (!el) return;
+  el.textContent = formErrorKey ? I18N[currentLang].contact.errors[formErrorKey] : '';
+  el.hidden = !formErrorKey;
+}
+
+function clearFormError() {
+  formErrorKey = null;
+  renderFormError();
+  Object.values(FIELD_IDS).forEach((id) => {
+    const f = document.getElementById(id);
+    f.removeAttribute('aria-invalid');
+    f.removeAttribute('aria-describedby');
+  });
+}
+
 function initForm() {
   const form = document.getElementById('contact-form');
   const done = document.getElementById('form-done');
-  const error = document.getElementById('form-error');
   const again = document.getElementById('form-again');
   if (!form) return;
+  const submit = form.querySelector('[type="submit"]');
+
+  /* O erro desaparece assim que o visitante corrige o campo. */
+  Object.values(FIELD_IDS).forEach((id) => document.getElementById(id).addEventListener('input', () => {
+    if (formErrorKey) clearFormError();
+  }));
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (submit.disabled) return;
     const data = Object.fromEntries(new FormData(form));
-    const missing = [['business', 'f-biz'], ['activity', 'f-act'], ['name', 'f-name'], ['reply', 'f-mail']].find(([k]) => !String(data[k] || '').trim());
-    if (missing) {
-      error.hidden = false;
-      document.getElementById(missing[1]).focus();
+    clearFormError();
+    const checks = [['business', (v) => !!v], ['activity', (v) => !!v], ['name', (v) => !!v], ['reply', looksLikeContact]];
+    const bad = checks.find(([k, ok]) => !ok(String(data[k] || '').trim()));
+    if (bad) {
+      formErrorKey = bad[0];
+      renderFormError();
+      const field = document.getElementById(FIELD_IDS[bad[0]]);
+      field.setAttribute('aria-invalid', 'true');
+      field.setAttribute('aria-describedby', 'form-error');
+      field.focus();
       return;
     }
-    error.hidden = true;
     const t = I18N[currentLang].contact;
-    const showDone = () => { form.hidden = true; done.hidden = false; };
+    submit.disabled = true;
+    form.setAttribute('aria-busy', 'true');
+    const showDone = () => {
+      submit.disabled = false;
+      form.removeAttribute('aria-busy');
+      form.hidden = true;
+      done.hidden = false;
+    };
 
     /* Netlify Forms; se o envio falhar (ou em local), abre o email do visitante. */
     const mailtoFallback = () => {
@@ -499,11 +553,15 @@ function initForm() {
       showDone();
     };
 
+    /* Se o servidor não responder em 12 s, recorre ao email em vez de ficar à espera. */
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 12000);
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString()
-    }).then((r) => (r.ok ? showDone() : mailtoFallback())).catch(mailtoFallback);
+      body: new URLSearchParams(new FormData(form)).toString(),
+      signal: ctrl.signal
+    }).then((r) => (r.ok ? showDone() : mailtoFallback())).catch(mailtoFallback).finally(() => clearTimeout(timer));
   });
 
   again.addEventListener('click', () => {
@@ -522,6 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
   initForm();
+  initMotionToggle();
   initMotion();
   initCookies();
 });

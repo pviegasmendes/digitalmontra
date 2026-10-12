@@ -29,7 +29,8 @@ Es HTML, CSS y JS sin build ni dependencias. Para verlo, ejecutar `npx serve pub
   - Rascunho gratis en 48 h; el sitio queda listo en 1 a 2 semanas tras aprobarlo
 - No inventar testimonios, cifras de clientes ni proyectos de portafolio. Si hace falta, usar marcadores entre corchetes como `[NOMBRE DEL CLIENTE]` y avisar a Pablo.
 - Nunca poner claves de API, contraseñas ni tokens en el código. El sitio es público.
-- Mantener la accesibilidad: zonas táctiles de al menos 44 px, foco visible, contraste AA y `prefers-reduced-motion`.
+- Mantener la accesibilidad: zonas táctiles de al menos 44 px, foco visible, contraste AA y `prefers-reduced-motion`. Las animaciones continuas (faja, panel de azulejos) se pueden pausar con el botón de la faja (`#motion-toggle`, WCAG 2.2.2): cualquier animación infinita nueva debe obedecer a la clase `motion-paused` de `body`. Con movimiento reducido se quitan desplazamientos y rotaciones, pero se conservan los cambios de color y opacidad.
+- Colores: usar las variables de `:root` (`--tint`, `--on-dark`, `--error`, `--placeholder`...) en vez de escribir hexadecimales sueltos.
 
 ## Estado del formulario
 
