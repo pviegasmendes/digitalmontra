@@ -23,9 +23,10 @@ Es HTML, CSS y JS sin build ni dependencias. Para verlo, ejecutar `npx serve pub
 - Datos reales del negocio, que no se inventan:
   - Email: ola@digitalmontra.pt (buzón en Zoho Mail; la política de privacidad lista Zoho como prestador de correo, actualizarla si cambia)
   - WhatsApp: +351 912 979 825
-  - Esencial: 290 €
-  - Profesional: hasta 5 páginas, precio bajo consulta
-  - Mantenimiento: 29 €/mes o 290 €/año (2 meses gratis)
+  - Creación del sitio (pago único): Essencial 390 €, Profissional 790 € (hasta 5 páginas), Premium desde 1.290 €
+  - Mantenimiento mensual (compromiso mínimo de 12 meses): Base 29 €/mes, Plus 49 €/mes (recomendado), Pro 79 €/mes
+  - Oferta de lanzamiento: Plus o Pro por 12 meses = 50 % de descuento en la creación Essencial o Profissional. Pago anual: se pagan 10 meses y se tienen 12. Cambios fuera del plan: 35 €/hora
+  - Los precios viven en un único archivo, `public/pricing.js`; los textos PT/EN de los planes, en `I18N.plans` (script.js). Al cambiar un precio, actualizar también los `Offer` del JSON-LD en el `<head>` de `index.html`
   - Rascunho gratis en 48 h; el sitio queda listo en 1 a 2 semanas tras aprobarlo
 - No inventar testimonios, cifras de clientes ni proyectos de portafolio. Si hace falta, usar marcadores entre corchetes como `[NOMBRE DEL CLIENTE]` y avisar a Pablo.
 - Nunca poner claves de API, contraseñas ni tokens en el código. El sitio es público.

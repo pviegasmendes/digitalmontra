@@ -40,8 +40,12 @@
         "availableLanguage": ["pt", "en"],
         "knowsAbout": ["Criação de sites", "Web design", "SEO local", "Perfil da Empresa no Google"],
         "makesOffer": [
-          { "@type": "Offer", "name": "Plano Essencial: site de uma página", "price": "290", "priceCurrency": "EUR" },
-          { "@type": "Offer", "name": "Manutenção de site", "price": "29", "priceCurrency": "EUR" }
+          { "@type": "Offer", "name": "Essencial: site de uma página", "price": "390", "priceCurrency": "EUR" },
+          { "@type": "Offer", "name": "Profissional: site até 5 páginas", "price": "790", "priceCurrency": "EUR" },
+          { "@type": "Offer", "name": "Premium: site com reservas e blog", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1290", "priceCurrency": "EUR" } },
+          { "@type": "Offer", "name": "Manutenção mensal Base", "price": "29", "priceCurrency": "EUR" },
+          { "@type": "Offer", "name": "Manutenção mensal Plus", "price": "49", "priceCurrency": "EUR" },
+          { "@type": "Offer", "name": "Manutenção mensal Pro", "price": "79", "priceCurrency": "EUR" }
         ]
       },
       {
@@ -209,12 +213,23 @@
 
     <!-- PLANOS -->
     <section id="planos" class="wrap section">
-      <header class="section-head" data-reveal>
-        <p class="eyebrow" data-i18n="plans.eyebrow">Planos</p>
-        <h2 data-i18n="plans.title">Escolha o ponto de partida certo para o seu negócio.</h2>
-      </header>
-      <div class="grid plans" data-list="plans.list"></div>
-      <p class="note" data-i18n="plans.note" data-reveal>Todos os planos incluem versão em português e inglês. Valores finais confirmados na proposta.</p>
+      <div class="plan-block">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="plans.eyebrow">Planos</p>
+          <h2 data-i18n="plans.creation.title">Criação do site</h2>
+          <p class="lead" data-i18n="plans.creation.sub">Pagamento único. Todos os sites são bilingues (PT/EN), rápidos e adaptados ao telemóvel.</p>
+        </header>
+        <div class="grid plans" data-list="plans.creation.items"></div>
+      </div>
+
+      <div class="plan-block">
+        <header class="section-head" data-reveal>
+          <h2 data-i18n="plans.care.title">Manutenção mensal</h2>
+          <p class="lead" data-i18n="plans.care.sub">O seu site sempre online, seguro e atualizado. Compromisso mínimo de 12 meses.</p>
+        </header>
+        <div class="grid plans" data-list="plans.care.items"></div>
+        <ul class="plan-notes" data-list="plans.notes"></ul>
+      </div>
     </section>
 
     <!-- FAQ -->
@@ -232,7 +247,7 @@
         <h2 data-i18n="contact.title">Fale-nos do seu negócio e receba um rascunho em 48 horas.</h2>
         <p class="lead" data-i18n="contact.sub">Basta o nome e a atividade do negócio. Preparamos o rascunho gratuito e uma proposta com preço fixo.</p>
         <ul class="checks" data-list="contact.points" data-noreveal></ul>
-        <a class="btn btn-outline wa-cta" href="https://wa.me/351912979825" target="_blank" rel="noopener" data-i18n="contact.waCta">Prefere falar já? Escreva no WhatsApp</a>
+        <a class="btn btn-outline wa-cta" href="https://wa.me/351912979825" target="_blank" rel="noopener" data-i18n="contact.waCta">Falar no WhatsApp</a>
         <ul class="contact-links">
           <li><a href="mailto:ola@digitalmontra.pt">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
@@ -337,6 +352,7 @@
     </div>
   </div>
 
+  <script src="pricing.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

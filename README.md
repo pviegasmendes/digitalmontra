@@ -25,6 +25,7 @@ Es un sitio estático bilingüe (portugués de Portugal por defecto, e inglés) 
     ├── politica-de-privacidade.html
     ├── styles.css               # Estilos y variables de diseño (:root)
     ├── script.js                # Textos PT/EN, idioma, formulario, cookies, animaciones
+    ├── pricing.js               # Precios y condiciones de los planes (único sitio donde se cambian)
     ├── robots.txt
     ├── _headers                 # Cabeceras de seguridad y caché para Netlify
     └── assets/                  # Logo, favicon e iconos

@@ -15,3 +15,6 @@
 
 /script.js
   Cache-Control: public, max-age=3600, must-revalidate
+
+/pricing.js
+  Cache-Control: public, max-age=3600, must-revalidate

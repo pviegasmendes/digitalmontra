@@ -56,7 +56,7 @@ const I18N = {
         { value: '48 h', label: 'Rascunho gratuito do seu site', count: true },
         { value: '1–2 sem', label: 'Da aprovação ao site no ar' },
         { value: 'PT + EN', label: 'Em todos os sites' },
-        { value: '290 €', label: 'Plano Essencial, preço fixo', count: true }
+        { priceOf: 'essencial', label: 'Plano Essencial, preço fixo', count: true }
       ]
     },
     marquee: { items: ['Restaurantes', 'Alojamentos', 'Lojas', 'Serviços'] },
@@ -96,13 +96,29 @@ const I18N = {
       ]
     },
     plans: {
-      eyebrow: 'Planos', title: 'Escolha o ponto de partida certo para o seu negócio.',
-      badge: 'Recomendado', cta: 'Pedir proposta',
-      note: 'Todos os planos incluem versão em português e inglês. Valores finais confirmados na proposta.',
-      list: [
-        { name: 'Essencial', price: '290 €', desc: 'Para começar com uma presença online profissional.', features: ['Site de uma página', 'Português e inglês', 'Contactos, mapa e horários', 'Ligação ao WhatsApp'] },
-        { name: 'Profissional', price: 'Sob consulta', desc: 'Para negócios que querem receber pedidos online.', features: ['Até 5 páginas', 'Formulário de reservas ou orçamentos', 'Perfil da Empresa no Google', 'SEO local básico'], featured: true },
-        { name: 'Manutenção', price: '29 €/mês', promo: 'ou 290 €/ano: 2 meses grátis', desc: 'Para não ter de se preocupar com o site.', features: ['Alojamento e domínio', 'Atualizações de conteúdo', 'Segurança e cópias de segurança', 'Suporte por WhatsApp'] }
+      eyebrow: 'Planos', badge: 'Recomendado', cta: 'Pedir proposta', from: 'desde', perMonth: '/mês',
+      creation: {
+        title: 'Criação do site',
+        sub: 'Pagamento único. Todos os sites são bilingues (PT/EN), rápidos e adaptados ao telemóvel.',
+        items: [
+          { id: 'essencial', name: 'Essencial', fit: 'Ideal para cafés, cabeleireiros e serviços.', text: 'Página única com serviços, fotos, mapa, WhatsApp e contacto.' },
+          { id: 'profissional', name: 'Profissional', fit: 'Ideal para restaurantes e alojamento local.', text: 'Até 5 páginas, galeria, menu ou tabela de preços, formulário e SEO básico.' },
+          { id: 'premium', name: 'Premium', fit: 'Ideal para hotéis e negócios com reservas.', text: 'Integração de reservas, blog e páginas adicionais.' }
+        ]
+      },
+      care: {
+        title: 'Manutenção mensal',
+        sub: 'O seu site sempre online, seguro e atualizado. Compromisso mínimo de {months} meses.',
+        items: [
+          { id: 'base', name: 'Base', text: 'Alojamento, certificado SSL, cópias de segurança, atualizações e 1 alteração pequena por mês.' },
+          { id: 'plus', name: 'Plus', text: 'Tudo do Base + até 4 alterações por mês (menu, preços, fotos, horários), gestão do Perfil de Empresa no Google e relatório mensal de visitas.' },
+          { id: 'pro', name: 'Pro', text: 'Tudo do Plus + SEO local, atualização de época (verão/inverno), 1 secção nova por trimestre e suporte prioritário.' }
+        ]
+      },
+      notes: [
+        { id: 'launch', text: 'Oferta de lançamento: ao escolher o plano Plus ou Pro por {months} meses, a criação do site Essencial ou Profissional tem {discount} de desconto.' },
+        { id: 'annual', text: 'Pagamento anual: paga {paid} meses e tem {total}.' },
+        { id: 'extra', text: 'Alterações fora do plano: {rate}/hora.' }
       ]
     },
     faq: {
@@ -118,7 +134,7 @@ const I18N = {
       eyebrow: 'Contacto', title: 'Fale-nos do seu negócio e receba um rascunho em 48 horas.',
       sub: 'Basta o nome e a atividade do negócio. Preparamos o rascunho gratuito e uma proposta com preço fixo.',
       points: ['Rascunho grátis em 48 horas', 'Sem compromisso', 'Preço fixo, sem surpresas'],
-      waCta: 'Prefere falar já? Escreva no WhatsApp',
+      waCta: 'Falar no WhatsApp',
       name: 'O seu nome', business: 'Nome do negócio', businessPh: 'Ex.: Restaurante O Pescador',
       activity: 'Atividade do negócio', activityPh: 'Ex.: restaurante, alojamento local, loja, serviços',
       email: 'Email ou telefone', message: 'Quer acrescentar algo? (opcional)',
@@ -171,7 +187,7 @@ const I18N = {
         { value: '48 h', label: 'Free draft of your site', count: true },
         { value: '1–2 wks', label: 'From approval to live' },
         { value: 'PT + EN', label: 'On every site' },
-        { value: '€290', label: 'Essential plan, fixed price', count: true }
+        { priceOf: 'essencial', label: 'Essencial plan, fixed price', count: true }
       ]
     },
     marquee: { items: ['Restaurants', 'Holiday rentals', 'Shops', 'Services'] },
@@ -211,13 +227,29 @@ const I18N = {
       ]
     },
     plans: {
-      eyebrow: 'Plans', title: 'Pick the right starting point for your business.',
-      badge: 'Recommended', cta: 'Get a proposal',
-      note: 'Every plan includes Portuguese and English versions. Final prices confirmed in your proposal.',
-      list: [
-        { name: 'Essential', price: '€290', desc: 'A professional online presence to get started.', features: ['One-page website', 'Portuguese and English', 'Contact, map and hours', 'WhatsApp link'] },
-        { name: 'Professional', price: 'On request', desc: 'For businesses that want to take enquiries online.', features: ['Up to 5 pages', 'Booking or quote form', 'Google Business Profile', 'Basic local SEO'], featured: true },
-        { name: 'Care plan', price: '€29/mo', promo: 'or €290/year: 2 months free', desc: 'So you never have to worry about your website.', features: ['Hosting and domain', 'Content updates', 'Security and backups', 'WhatsApp support'] }
+      eyebrow: 'Plans', badge: 'Recommended', cta: 'Request a proposal', from: 'from', perMonth: '/month',
+      creation: {
+        title: 'Website creation',
+        sub: 'One-off payment. Every site is bilingual (PT/EN), fast and mobile-friendly.',
+        items: [
+          { id: 'essencial', name: 'Essencial', fit: 'Best for cafés, salons and trades.', text: 'One-page site with services, photos, map, WhatsApp and contact.' },
+          { id: 'profissional', name: 'Profissional', fit: 'Best for restaurants and holiday rentals.', text: 'Up to 5 pages, gallery, menu or price list, contact form and basic SEO.' },
+          { id: 'premium', name: 'Premium', fit: 'Best for hotels and booking-based businesses.', text: 'Booking integration, blog and extra pages.' }
+        ]
+      },
+      care: {
+        title: 'Monthly care plans',
+        sub: 'Your site always online, secure and up to date. Minimum commitment: {months} months.',
+        items: [
+          { id: 'base', name: 'Base', text: 'Hosting, SSL certificate, backups, updates and 1 small change per month.' },
+          { id: 'plus', name: 'Plus', text: 'Everything in Base + up to 4 changes per month (menu, prices, photos, hours), Google Business Profile management and a monthly visits report.' },
+          { id: 'pro', name: 'Pro', text: 'Everything in Plus + local SEO, seasonal refresh (summer/winter), 1 new section per quarter and priority support.' }
+        ]
+      },
+      notes: [
+        { id: 'launch', text: 'Launch offer: choose Plus or Pro for {months} months and get {discount} off the Essencial or Profissional website.' },
+        { id: 'annual', text: 'Annual payment: pay for {paid} months, get {total}.' },
+        { id: 'extra', text: 'Changes outside your plan: {rate}/hour.' }
       ]
     },
     faq: {
@@ -233,7 +265,7 @@ const I18N = {
       eyebrow: 'Contact', title: 'Tell us about your business and get a draft in 48 hours.',
       sub: 'Just your business name and activity. We prepare the free draft and a fixed-price proposal.',
       points: ['Free draft in 48 hours', 'No strings attached', 'Fixed price, no surprises'],
-      waCta: 'Prefer to talk now? Message us on WhatsApp',
+      waCta: 'Chat on WhatsApp',
       name: 'Your name', business: 'Business name', businessPh: 'E.g. O Pescador Restaurant',
       activity: 'Business activity', activityPh: 'E.g. restaurant, holiday rental, shop, services',
       email: 'Email or phone', message: 'Anything to add? (optional)',
@@ -249,8 +281,42 @@ const I18N = {
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const get = (obj, path) => path.split('.').reduce((o, k) => (o ? o[k] : undefined), obj);
 
+/* Preços: os valores vêm de pricing.js (PRICING); aqui só se formatam por idioma.
+   Nos textos de I18N, {months}, {discount}, {paid}, {total} e {rate} são substituídos pelos valores de PRICING. */
+const fmtNumber = (n) => n.toLocaleString(currentLang === 'pt' ? 'de-DE' : 'en-US');
+const formatPrice = (n) => (currentLang === 'pt' ? `${fmtNumber(n)} €` : `€${fmtNumber(n)}`);
+const formatPercent = (n) => (currentLang === 'pt' ? `${n} %` : `${n}%`);
+const fill = (str) => {
+  if (typeof PRICING === 'undefined') return str;
+  const vars = {
+    months: PRICING.minMonths,
+    discount: formatPercent(PRICING.launchDiscountPercent),
+    paid: PRICING.annualMonthsPaid,
+    total: PRICING.annualMonthsTotal,
+    rate: formatPrice(PRICING.extraHourRate)
+  };
+  return str.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+};
+
 /* Texto legal: [entre parênteses retos] marca dados que o titular tem de preencher. */
 const legalText = (s) => esc(s).replace(/\[([^\]]+)\]/g, '<span class="ph">[$1]</span>');
+
+/* Tarjetas de planes: cada texto (I18N) se junta ao seu preço (PRICING) pelo id. */
+const NOTE_ICONS = { launch: 'gift', annual: 'calendar', extra: 'tool' };
+function planCards(group, monthly, items, t) {
+  return items.map((x) => {
+    const p = PRICING[group].find((q) => q.id === x.id);
+    if (!p) return '';
+    return `
+    <article class="plan${p.featured ? ' featured' : ''}">
+      <div class="plan-head"><h3>${esc(x.name)}</h3>${p.featured ? `<span class="badge">${esc(t.plans.badge)}</span>` : ''}</div>
+      <div class="price">${p.from ? `<span class="price-pre">${esc(t.plans.from)}</span> ` : ''}<span>${esc(formatPrice(p.price))}</span>${monthly ? `<span class="price-per">${esc(t.plans.perMonth)}</span>` : ''}</div>
+      ${x.fit ? `<p class="plan-fit">${esc(x.fit)}</p>` : ''}
+      <p class="plan-desc">${esc(x.text)}</p>
+      <a class="btn${p.featured ? '' : ' btn-outline'}" href="#contacto">${esc(t.plans.cta)}</a>
+    </article>`;
+  }).join('');
+}
 
 const RENDER = {
   'legal.sections': (items) => items.map((s) => `
@@ -262,8 +328,9 @@ const RENDER = {
       ${(s.after || []).map((p) => `<p>${legalText(p)}</p>`).join('')}
     </section>`).join(''),
   'stats.items': (items) => items.map((s) => {
-    const m = s.count && /^(\D*)(\d+)(.*)$/.exec(s.value);
-    const value = m ? `${esc(m[1])}<span data-count="${m[2]}">${m[2]}</span>${esc(m[3])}` : esc(s.value);
+    const raw = s.priceOf ? formatPrice(PRICING.creation.find((p) => p.id === s.priceOf).price) : s.value;
+    const m = s.count && /^(\D*)(\d+)(.*)$/.exec(raw);
+    const value = m ? `${esc(m[1])}<span data-count="${m[2]}">${m[2]}</span>${esc(m[3])}` : esc(raw);
     return `<li><strong class="stat-v">${value}</strong><span class="stat-l">${esc(s.label)}</span></li>`;
   }).join(''),
   'marquee.items': (items) => {
@@ -283,15 +350,10 @@ const RENDER = {
     <li><span class="step-n">${i + 1}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join(''),
   'why.items': (items) => items.map((w) => `
     <div class="why-item"><h3>${esc(w.title)}</h3><p>${esc(w.text)}</p></div>`).join(''),
-  'plans.list': (items, t) => items.map((p) => `
-    <article class="plan${p.featured ? ' featured' : ''}">
-      <div class="plan-head"><h3>${esc(p.name)}</h3>${p.featured ? `<span class="badge">${esc(t.plans.badge)}</span>` : ''}</div>
-      <div class="price">${esc(p.price)}</div>
-      ${p.promo ? `<div class="promo">${ICONS.gift}<span>${esc(p.promo)}</span></div>` : ''}
-      <p class="plan-desc">${esc(p.desc)}</p>
-      <ul>${p.features.map((f) => `<li>${ICONS.check}<span>${esc(f)}</span></li>`).join('')}</ul>
-      <a class="btn ${p.featured ? '' : 'btn-outline'}" href="#contacto">${esc(t.plans.cta)}</a>
-    </article>`).join(''),
+  'plans.creation.items': (items, t) => planCards('creation', false, items, t),
+  'plans.care.items': (items, t) => planCards('care', true, items, t),
+  'plans.notes': (items) => items.map((n) => `
+    <li class="plan-note${n.id === 'launch' ? ' offer' : ''}">${ICONS[NOTE_ICONS[n.id]] || ''}<p>${esc(fill(n.text))}</p></li>`).join(''),
   'faq.items': (items) => items.map((q) => `
     <details><summary><span>${esc(q.q)}</span>${ICONS.plus}</summary><p>${esc(q.a)}</p></details>`).join('')
 };
@@ -304,7 +366,7 @@ function setLang(lang) {
   document.documentElement.lang = currentLang;
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const v = get(t, el.dataset.i18n);
-    if (typeof v === 'string') el.textContent = v;
+    if (typeof v === 'string') el.textContent = fill(v);
   });
   document.querySelectorAll('[data-list]').forEach((el) => {
     const key = el.dataset.list;
