@@ -18,6 +18,11 @@ const I18N = {
     skip: 'Saltar para o conteúdo',
     wa: 'Falar connosco no WhatsApp',
     motion: { pause: 'Pausar animações' },
+    draft: {
+      title: 'Veja o seu site antes de decidir.',
+      text: 'Em 48 horas recebe um rascunho gratuito, pensado para o computador e para o telemóvel. Sem compromisso.',
+      note: 'Ilustração do tipo de rascunho que recebe. Não é o projeto de nenhum cliente.'
+    },
     cookie: {
       title: 'Cookies e privacidade',
       text: 'Usamos apenas o armazenamento necessário para o site funcionar (por exemplo, lembrar o idioma). Pode aceitar ou recusar o armazenamento opcional, e alterar a sua escolha em qualquer altura.',
@@ -128,6 +133,11 @@ const I18N = {
     skip: 'Skip to content',
     wa: 'Chat with us on WhatsApp',
     motion: { pause: 'Pause animations' },
+    draft: {
+      title: 'See your site before you decide.',
+      text: 'Within 48 hours you receive a free draft, designed for desktop and mobile. No strings attached.',
+      note: 'Illustration of the kind of draft you receive. Not a client project.'
+    },
     cookie: {
       title: 'Cookies and privacy',
       text: 'We only use the storage the site needs to work (for example, remembering your language). You can accept or refuse optional storage, and change your choice at any time.',
