@@ -246,14 +246,28 @@ p { margin: 0; }
 .sk-tile img { width: 100%; height: 100%; object-fit: contain; }
 .sk-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .sk-card { display: grid; align-content: center; gap: 6px; height: 58px; padding: 0 12px; border: 1px solid #E3EAF1; border-radius: 8px; background: #F4F7FA; }
-.phone { position: absolute; right: 0; bottom: 0; width: 27%; display: grid; align-content: start; gap: 9px; padding: 16px 11px 18px; border: 5px solid #0A1E33; border-radius: 24px; background: #fff; transform: rotate(3deg); box-shadow: 0 36px 60px -26px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.16); }
-.phone .sk-tile { padding: 24%; }
-.phone .sk-card { height: 34px; padding: 0 9px; }
-.phone .sk-cta { width: 70%; height: 22px; }
+/* Teléfono com proporções de iPhone (9:19,5), ilha dinâmica e botões laterais.
+   O conteúdo usa cqw (largura do próprio telefone) para escalar sempre na mesma proporção. */
+.phone { --frame: #0A1E33; position: absolute; right: 0; bottom: 0; width: 26%; aspect-ratio: 9 / 19.5; container-type: inline-size; border-radius: 15% / 6.9%; background: var(--frame); transform: rotate(3deg);
+  box-shadow: 0 36px 60px -26px rgba(0, 0, 0, 0.75), 0 0 0 1.5px #3A4F66, inset 0 0 0 1.5px #1B3350; }
+.phone-screen { position: absolute; inset: 4px; display: grid; align-content: start; gap: 4cqw; overflow: hidden; padding: 12.5cqw 6cqw 6cqw; border-radius: 13.4% / 6.1%; background: #fff; }
+.phone-island { position: absolute; top: 2.6cqw; left: 50%; width: 29cqw; height: 8cqw; border-radius: 999px; background: var(--frame); transform: translateX(-50%); }
+.phone-btn { position: absolute; width: 3px; border-radius: 2px; background: var(--frame); box-shadow: inset 0 0 0 1px #3A4F66; }
+.pb-silent { left: -3px; top: 15%; height: 3.5%; }
+.pb-up { left: -3px; top: 22%; height: 7%; }
+.pb-down { left: -3px; top: 31%; height: 7%; }
+.pb-power { right: -3px; top: 26%; height: 11%; }
+.phone .sk-logo { width: 9cqw; height: 9cqw; border-radius: 2.6cqw; }
+.phone .sk-nav { gap: 4cqw; }
+.phone .sk-bar { height: 4.2cqw; border-radius: 2cqw; }
+.phone .sk-bar.h { height: 8cqw; border-radius: 2.6cqw; }
+.phone .sk-cta { width: 62%; height: 11cqw; margin-top: 1cqw; }
+.phone .sk-tile { width: 62%; justify-self: center; padding: 20%; border-width: 1.8cqw; border-radius: 2cqw; }
+.phone .sk-card { height: 15cqw; padding: 0 5cqw; border-radius: 4cqw; gap: 0; }
 @keyframes sweep { 0% { transform: translateX(-120%); } 55%, 100% { transform: translateX(120%); } }
 @media (max-width: 900px) {
   .draft { grid-template-columns: 1fr; }
-  .phone { transform: none; }
+  .phone { transform: none; width: 34%; }
 }
 
 /* Why */
