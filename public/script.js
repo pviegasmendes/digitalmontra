@@ -17,7 +17,6 @@ const I18N = {
   pt: {
     skip: 'Saltar para o conteúdo',
     wa: 'Falar connosco no WhatsApp',
-    motion: { pause: 'Pausar animações' },
     draft: {
       title: 'Veja o seu site antes de decidir.',
       text: 'Em 48 horas recebe um rascunho gratuito, pensado para o computador e para o telemóvel. Sem compromisso.',
@@ -59,7 +58,6 @@ const I18N = {
         { priceOf: 'essencial', label: 'Plano Essencial, preço fixo', count: true }
       ]
     },
-    marquee: { items: ['Restaurantes', 'Alojamentos', 'Lojas', 'Serviços'] },
     nav: { services: 'Serviços', process: 'Processo', plans: 'Planos', faq: 'Perguntas', contact: 'Contacto', cta: 'Pedir proposta' },
     hero: {
       eyebrow: 'Estúdio web no Algarve',
@@ -148,7 +146,6 @@ const I18N = {
   en: {
     skip: 'Skip to content',
     wa: 'Chat with us on WhatsApp',
-    motion: { pause: 'Pause animations' },
     draft: {
       title: 'See your site before you decide.',
       text: 'Within 48 hours you receive a free draft, designed for desktop and mobile. No strings attached.',
@@ -190,7 +187,6 @@ const I18N = {
         { priceOf: 'essencial', label: 'Essencial plan, fixed price', count: true }
       ]
     },
-    marquee: { items: ['Restaurants', 'Holiday rentals', 'Shops', 'Services'] },
     nav: { services: 'Services', process: 'Process', plans: 'Plans', faq: 'FAQ', contact: 'Contact', cta: 'Get a proposal' },
     hero: {
       eyebrow: 'Web studio in the Algarve',
@@ -333,11 +329,6 @@ const RENDER = {
     const value = m ? `${esc(m[1])}<span data-count="${m[2]}">${m[2]}</span>${esc(m[3])}` : esc(raw);
     return `<li><strong class="stat-v">${value}</strong><span class="stat-l">${esc(s.label)}</span></li>`;
   }).join(''),
-  'marquee.items': (items) => {
-    const group = [0, 1].map(() => items.map((w, i) =>
-      `<span class="marquee-item${i % 2 ? ' alt' : ''}">${esc(w)}</span><img src="assets/emblem-white.png" alt="" width="40" height="40">`).join('')).join('');
-    return `<div class="marquee-group">${group}</div><div class="marquee-group">${group}</div>`;
-  },
   'contact.points': (items) => items.map((p) => `<li>${ICONS.check}${esc(p)}</li>`).join(''),
   'hero.points': (items) => items.map((p) => `<li>${ICONS.check}${esc(p)}</li>`).join(''),
   'services.items': (items) => items.map((s) => `
@@ -394,18 +385,6 @@ function setLang(lang) {
   observeReveals();
   renderFormError();
   try { localStorage.setItem('dm-lang', currentLang); } catch (e) { /* sem armazenamento */ }
-}
-
-/* Pausar as animações contínuas (faixa e painel da portada), WCAG 2.2.2.
-   O botão mantém sempre o mesmo nome; o estado vai em aria-pressed. */
-function initMotionToggle() {
-  const b = document.getElementById('motion-toggle');
-  if (!b) return;
-  b.addEventListener('click', () => {
-    const paused = b.getAttribute('aria-pressed') !== 'true';
-    b.setAttribute('aria-pressed', String(paused));
-    document.body.classList.toggle('motion-paused', paused);
-  });
 }
 
 /* Título do hero: cada palavra sobe a partir de uma máscara. */
@@ -498,7 +477,6 @@ function initMotion() {
      un pequeño retraso (interpolación), así el movimiento se siente fluido. */
   const FOLLOW = 0.08; // 0–1: más bajo = más retraso
   const tilt = { x: 0, y: 0, tx: 0, ty: 0 };
-  const glows = new Map(); // tarjeta -> { x, y, tx, ty }
   let looping = false;
 
   const loop = () => {
@@ -511,16 +489,7 @@ function initMotion() {
     }
     if (Math.abs(tilt.tx - tilt.x) > 0.002 || Math.abs(tilt.ty - tilt.y) > 0.002) moving = true;
 
-    glows.forEach((g, card) => {
-      g.x += (g.tx - g.x) * FOLLOW * 1.4;
-      g.y += (g.ty - g.y) * FOLLOW * 1.4;
-      card.style.setProperty('--mx', `${g.x.toFixed(1)}px`);
-      card.style.setProperty('--my', `${g.y.toFixed(1)}px`);
-      if (Math.abs(g.tx - g.x) > 0.3 || Math.abs(g.ty - g.y) > 0.3) moving = true;
-      else if (!card.matches(':hover')) glows.delete(card);
-    });
-
-    looping = moving || glows.size > 0;
+    looping = moving;
     if (looping) requestAnimationFrame(loop);
   };
   const kick = () => { if (!looping) { looping = true; requestAnimationFrame(loop); } };
@@ -534,19 +503,6 @@ function initMotion() {
     });
     wrap.addEventListener('pointerleave', () => { tilt.tx = 0; tilt.ty = 0; kick(); });
   }
-
-  document.addEventListener('pointermove', (e) => {
-    const card = e.target.closest && e.target.closest('.service');
-    if (!card) return;
-    const r = card.getBoundingClientRect();
-    const px = e.clientX - r.left;
-    const py = e.clientY - r.top;
-    let g = glows.get(card);
-    if (!g) { g = { x: px, y: py, tx: px, ty: py }; glows.set(card, g); }
-    g.tx = px;
-    g.ty = py;
-    kick();
-  });
 }
 
 /* Formulário: abre o email do visitante com o pedido preenchido.
@@ -652,7 +608,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
   initForm();
-  initMotionToggle();
   initMotion();
   initCookies();
 });
