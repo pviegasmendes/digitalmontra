@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+import { tx } from '../scripts/render.js';
+import { buildJsonLd } from '../data/jsonld.js';
+
+const { page = 'home' } = Astro.props;
+const legal = page === 'legal';
+const title = tx(legal ? 'legal.seo.title' : 'seo.title');
+const description = tx(legal ? 'legal.seo.description' : 'seo.description');
+---
+<!doctype html>
+<html lang="pt" data-page={legal ? 'legal' : undefined}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="robots" content={legal ? 'noindex, follow' : 'index, follow, max-image-preview:large'}>
+  <meta name="theme-color" content="#0E2A47">
+  {!legal && <meta name="author" content="Digital Montra Web Studio" />}
+  {!legal && <meta name="geo.region" content="PT-08" />}
+  {!legal && <meta name="geo.placename" content="Algarve" />}
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  {!legal && <meta property="og:type" content="website" />}
+  {!legal && <meta property="og:site_name" content="Digital Montra Web Studio" />}
+  {!legal && <meta property="og:locale" content="pt_PT" />}
+  {!legal && <meta property="og:locale:alternate" content="en_GB" />}
+  {!legal && <meta name="twitter:card" content="summary" />}
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/montserrat-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/karla-latin.woff2" crossorigin>
+  {!legal && <link rel="preload" as="image" href="/assets/emblem-white.png" />}
+  <script is:inline>document.documentElement.classList.add('js');</script>
+  {!legal && <script type="application/ld+json" set:html={JSON.stringify(buildJsonLd())} />}
+</head>
+<body>
+  <a class="skip" href="#conteudo" data-i18n="skip">{tx('skip')}</a>
+  <slot />
+  <script>
+    import '../scripts/site.js';
+  </script>
+</body>
+</html>

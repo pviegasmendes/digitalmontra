@@ -1,7 +1,7 @@
 /* Preços do site: é o ÚNICO sítio onde se mudam valores.
-   Aqui só há números e opções; os textos (PT/EN) estão em I18N.plans, em script.js.
-   Se mudar os preços, atualize também os "Offer" do JSON-LD no <head> de index.html. */
-const PRICING = {
+   Aqui só há números e opções; os textos (PT/EN) estão em I18N.plans, em src/data/i18n.js.
+   O JSON-LD para o Google (src/data/jsonld.js) lê estes valores, por isso não é preciso tocar-lhe. */
+export const PRICING = {
   /* Criação do site (pagamento único) */
   creation: [
     { id: 'essencial', price: 390 },

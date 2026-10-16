@@ -1,0 +1,63 @@
+---
+import { tx, list } from '../scripts/render.js';
+---
+<!-- CONTACTO -->
+    <section id="contacto" class="wrap section contact">
+      <div class="contact-info" data-reveal>
+        <p class="eyebrow" data-i18n="contact.eyebrow">{tx('contact.eyebrow')}</p>
+        <h2 data-i18n="contact.title">{tx('contact.title')}</h2>
+        <p class="lead" data-i18n="contact.sub">{tx('contact.sub')}</p>
+        <ul class="checks" data-list="contact.points" data-noreveal set:html={list('contact.points')}></ul>
+        <a class="btn btn-outline wa-cta" href="https://wa.me/351912979825" target="_blank" rel="noopener" data-i18n="contact.waCta">{tx('contact.waCta')}</a>
+        <ul class="contact-links">
+          <li><a href="mailto:ola@digitalmontra.pt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            ola@digitalmontra.pt</a></li>
+          <li><a href="https://wa.me/351912979825" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>
+            +351 912 979 825</a></li>
+          <li><span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Algarve, Portugal</span></li>
+        </ul>
+      </div>
+
+      <div class="card-form" data-reveal style="--d:2">
+        <form id="contact-form" name="contacto" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contacto">
+          <p class="hp" aria-hidden="true"><label>Não preencher <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="field">
+            <label for="f-biz" data-i18n="contact.business">{tx('contact.business')}</label>
+            <input id="f-biz" name="business" type="text" autocomplete="organization" maxlength="100" required data-i18n-ph="contact.businessPh" placeholder={tx('contact.businessPh')}>
+          </div>
+          <div class="field">
+            <label for="f-act" data-i18n="contact.activity">{tx('contact.activity')}</label>
+            <input id="f-act" name="activity" type="text" maxlength="100" required data-i18n-ph="contact.activityPh" placeholder={tx('contact.activityPh')}>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name" data-i18n="contact.name">{tx('contact.name')}</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required>
+            </div>
+            <div class="field">
+              <label for="f-mail" data-i18n="contact.email">{tx('contact.email')}</label>
+              <input id="f-mail" name="reply" type="text" autocomplete="email" maxlength="100" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg" data-i18n="contact.message">{tx('contact.message')}</label>
+            <textarea id="f-msg" name="message" rows="3" maxlength="1500"></textarea>
+          </div>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button class="btn btn-primary btn-submit" type="submit" data-i18n="contact.send">{tx('contact.send')}</button>
+          <p class="promise" data-i18n="contact.promise">{tx('contact.promise')}</p>
+          <p class="note"><span data-i18n="contact.privacy">{tx('contact.privacy')}</span> <a href="/politica-de-privacidade" data-i18n="contact.privacyLink">{tx('contact.privacyLink')}</a></p>
+        </form>
+        <div class="form-done" id="form-done" hidden>
+          <img src="/assets/emblem.png" alt="" width="56" height="56">
+          <h3 data-i18n="contact.thanks">{tx('contact.thanks')}</h3>
+          <p data-i18n="contact.thanksSub">{tx('contact.thanksSub')}</p>
+          <button class="btn btn-outline" type="button" id="form-again" data-i18n="contact.again">{tx('contact.again')}</button>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,23 @@
+---
+import { tx, list } from '../scripts/render.js';
+---
+<!-- PLANOS -->
+    <section id="planos" class="wrap section">
+      <div class="plan-block">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow" data-i18n="plans.eyebrow">{tx('plans.eyebrow')}</p>
+          <h2 data-i18n="plans.creation.title">{tx('plans.creation.title')}</h2>
+          <p class="lead" data-i18n="plans.creation.sub">{tx('plans.creation.sub')}</p>
+        </header>
+        <div class="grid plans" data-list="plans.creation.items" set:html={list('plans.creation.items')}></div>
+      </div>
+
+      <div class="plan-block">
+        <header class="section-head" data-reveal>
+          <h2 data-i18n="plans.care.title">{tx('plans.care.title')}</h2>
+          <p class="lead" data-i18n="plans.care.sub">{tx('plans.care.sub')}</p>
+        </header>
+        <div class="grid plans" data-list="plans.care.items" set:html={list('plans.care.items')}></div>
+        <ul class="plan-notes" data-list="plans.notes" set:html={list('plans.notes')}></ul>
+      </div>
+    </section>

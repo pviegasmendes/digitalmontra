@@ -1,0 +1,10 @@
+---
+import { tx, list } from '../scripts/render.js';
+---
+<!-- FAQ -->
+    <section id="faq" class="band-white">
+      <div class="wrap-narrow section">
+        <h2 data-i18n="faq.title" data-reveal>{tx('faq.title')}</h2>
+        <div class="faq" data-list="faq.items" set:html={list('faq.items')}></div>
+      </div>
+    </section>

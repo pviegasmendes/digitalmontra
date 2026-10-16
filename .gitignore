@@ -1,8 +1,10 @@
 # Configuración local de herramientas
 .claude/
 
-# Node
+# Node y Astro
 node_modules/
+dist/
+.astro/
 
 # Netlify CLI
 .netlify/

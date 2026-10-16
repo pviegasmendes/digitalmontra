@@ -1,0 +1,26 @@
+---
+import { tx } from '../scripts/render.js';
+---
+<div class="cookie" id="cookie" role="region" aria-labelledby="cookie-title" hidden>
+    <div class="cookie-main">
+      <h2 id="cookie-title" data-i18n="cookie.title">{tx('cookie.title')}</h2>
+      <p data-i18n="cookie.text">{tx('cookie.text')}</p>
+      <p><a href="/politica-de-privacidade" data-i18n="cookie.policy">{tx('cookie.policy')}</a></p>
+    </div>
+    <div class="cookie-prefs" id="cookie-prefs" hidden>
+      <div class="cookie-opt">
+        <div><strong data-i18n="cookie.necessary.t">{tx('cookie.necessary.t')}</strong><p data-i18n="cookie.necessary.d">{tx('cookie.necessary.d')}</p></div>
+        <label class="switch"><input type="checkbox" checked disabled><span class="switch-ui" aria-hidden="true"></span><span class="sr-only" data-i18n="cookie.always">{tx('cookie.always')}</span></label>
+      </div>
+      <div class="cookie-opt">
+        <div><strong data-i18n="cookie.stats.t">{tx('cookie.stats.t')}</strong><p data-i18n="cookie.stats.d">{tx('cookie.stats.d')}</p></div>
+        <label class="switch"><input type="checkbox" id="cookie-stats"><span class="switch-ui" aria-hidden="true"></span><span class="sr-only" data-i18n="cookie.stats.t">{tx('cookie.stats.t')}</span></label>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-reject" data-i18n="cookie.reject">{tx('cookie.reject')}</button>
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-custom" aria-expanded="false" aria-controls="cookie-prefs" data-i18n="cookie.customize">{tx('cookie.customize')}</button>
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-save" hidden data-i18n="cookie.save">{tx('cookie.save')}</button>
+      <button type="button" class="btn btn-outline btn-sm" id="cookie-accept" data-i18n="cookie.accept">{tx('cookie.accept')}</button>
+    </div>
+  </div>

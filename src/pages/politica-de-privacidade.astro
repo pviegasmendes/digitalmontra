@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { tx, list } from '../scripts/render.js';
+---
+<Base page="legal">
+  <header class="site-header" data-solid>
+      <nav class="nav wrap" aria-label="Principal">
+        <a class="brand" href="/">
+          <img src="/assets/emblem.png" alt="" width="40" height="40">
+          <span>DIGITAL<br>MONTRA</span>
+        </a>
+        <div class="nav-actions">
+          <div class="lang" role="group" aria-label="Idioma / Language">
+            <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn btn-primary btn-sm" href="/" data-i18n="legal.back">{tx('legal.back')}</a>
+        </div>
+      </nav>
+      <div class="progress" aria-hidden="true"></div>
+    </header>
+
+  <main id="conteudo" class="wrap-narrow legal">
+      <header class="legal-head">
+        <h1 data-i18n="legal.title">{tx('legal.title')}</h1>
+        <p class="note" data-i18n="legal.updated">{tx('legal.updated')}</p>
+      </header>
+      <div class="legal-list" data-list="legal.sections" data-noreveal set:html={list('legal.sections')}></div>
+    </main>
+
+  <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div class="brand brand-light">
+          <img src="/assets/emblem-white.png" alt="" width="44" height="44">
+          <span>DIGITAL MONTRA<small>WEB STUDIO</small></span>
+        </div>
+        <div class="footer-legal">
+          <p>© <span id="year">2026</span> Digital Montra Web Studio · Algarve, Portugal</p>
+          <p class="footer-legal-links">
+            <button type="button" class="link-btn" data-cookie-settings data-i18n="cookie.settings">{tx('cookie.settings')}</button>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  <CookieBanner />
+</Base>

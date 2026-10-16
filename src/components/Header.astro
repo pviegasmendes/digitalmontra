@@ -1,0 +1,27 @@
+---
+import { tx } from '../scripts/render.js';
+---
+<header class="site-header at-top">
+    <nav class="nav wrap" aria-label="Principal">
+      <a class="brand" href="#topo">
+        <img class="logo-light" src="/assets/emblem-white.png" alt="" width="40" height="40">
+        <img class="logo-dark" src="/assets/emblem.png" alt="" width="40" height="40">
+        <span>DIGITAL<br>MONTRA</span>
+      </a>
+      <div class="nav-links">
+        <a href="#servicos" data-i18n="nav.services">{tx('nav.services')}</a>
+        <a href="#processo" data-i18n="nav.process">{tx('nav.process')}</a>
+        <a href="#planos" data-i18n="nav.plans">{tx('nav.plans')}</a>
+        <a href="#faq" data-i18n="nav.faq">{tx('nav.faq')}</a>
+        <a href="#contacto" data-i18n="nav.contact">{tx('nav.contact')}</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn-primary btn-sm" href="#contacto" data-i18n="nav.cta">{tx('nav.cta')}</a>
+      </div>
+    </nav>
+    <div class="progress" aria-hidden="true"></div>
+  </header>

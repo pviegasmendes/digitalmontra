@@ -1,6 +1,6 @@
 /* Fontes alojadas no próprio site (sem pedidos a servidores de terceiros) */
-@font-face { font-family: Montserrat; font-style: normal; font-weight: 600 800; font-display: swap; src: url("assets/fonts/montserrat-latin.woff2") format("woff2"); }
-@font-face { font-family: Karla; font-style: normal; font-weight: 400 600; font-display: swap; src: url("assets/fonts/karla-latin.woff2") format("woff2"); }
+@font-face { font-family: Montserrat; font-style: normal; font-weight: 600 800; font-display: swap; src: url("/assets/fonts/montserrat-latin.woff2") format("woff2"); }
+@font-face { font-family: Karla; font-style: normal; font-weight: 400 600; font-display: swap; src: url("/assets/fonts/karla-latin.woff2") format("woff2"); }
 
 /* Digital Montra — tokens */
 :root {
