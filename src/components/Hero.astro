@@ -1,20 +1,19 @@
 ---
 import { tx, list } from '../scripts/render.js';
 ---
-<!-- HERO -->
-    <section id="topo" class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero.eyebrow">{tx('hero.eyebrow')}</p>
-          <h1 data-i18n="hero.title">{tx('hero.title')}</h1>
-          <p class="lead" data-i18n="hero.sub">{tx('hero.sub')}</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#contacto" data-i18n="hero.cta1">{tx('hero.cta1')}</a>
-            <a class="btn btn-outline" href="#servicos" data-i18n="hero.cta2">{tx('hero.cta2')}</a>
-          </div>
-          <ul class="checks" data-list="hero.points" data-noreveal set:html={list('hero.points')}></ul>
-        </div>
-        <div class="azulejo-wrap" aria-hidden="true">
+<!-- PORTADA: titular a todo o ancho; debaixo, texto e botões à esquerda e o painel de azulejos à direita -->
+<section id="topo" class="hero">
+  <div class="wrap hero-grid">
+    <p class="eyebrow" data-i18n="hero.eyebrow">{tx('hero.eyebrow')}</p>
+    <h1 data-i18n="hero.title">{tx('hero.title')}</h1>
+    <div class="hero-foot">
+      <p class="lead" data-i18n="hero.sub">{tx('hero.sub')}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contacto" data-i18n="hero.cta1">{tx('hero.cta1')}</a>
+        <a class="btn btn-outline" href="#servicos" data-i18n="hero.cta2">{tx('hero.cta2')}</a>
+      </div>
+    </div>
+    <div class="azulejo-wrap" aria-hidden="true">
           <div class="azulejo">
             <div class="tile blue" style="--i:0"><img src="/assets/emblem-white.png" alt="" width="320" height="320"></div>
             <div class="tile" style="--i:1"><img src="/assets/emblem.png" alt="" width="320" height="320"></div>
@@ -26,9 +25,9 @@ import { tx, list } from '../scripts/render.js';
             <div class="tile" style="--i:3"><img src="/assets/emblem.png" alt="" width="320" height="320"></div>
             <div class="tile blue" style="--i:4"><img src="/assets/emblem-white.png" alt="" width="320" height="320"></div>
           </div>
-        </div>
-      </div>
-      <div class="wrap">
-        <ul class="stats" data-list="stats.items" data-delay="12" set:html={list('stats.items')}></ul>
-      </div>
-    </section>
+    </div>
+  </div>
+  <div class="wrap">
+    <ul class="stats" data-list="stats.items" data-delay="12" set:html={list('stats.items')}></ul>
+  </div>
+</section>

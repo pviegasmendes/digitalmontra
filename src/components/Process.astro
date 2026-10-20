@@ -1,10 +1,9 @@
 ---
 import { tx, list } from '../scripts/render.js';
 ---
-<!-- PROCESSO -->
+<!-- PROCESSO: quatro passos numerados e o painel do rascunho -->
     <section id="processo" class="wrap section">
       <header class="section-head" data-reveal>
-        <p class="eyebrow" data-i18n="process.eyebrow">{tx('process.eyebrow')}</p>
         <h2 data-i18n="process.title">{tx('process.title')}</h2>
       </header>
       <ol class="grid steps" data-list="process.steps" set:html={list('process.steps')}></ol>

@@ -1,13 +1,10 @@
 ---
 import { tx, list } from '../scripts/render.js';
 ---
-<!-- SERVIÇOS -->
-    <section id="servicos" class="band-white">
-      <div class="wrap section">
-        <header class="section-head" data-reveal>
-          <p class="eyebrow" data-i18n="services.eyebrow">{tx('services.eyebrow')}</p>
-          <h2 data-i18n="services.title">{tx('services.title')}</h2>
-        </header>
-        <div class="grid services" data-list="services.items" set:html={list('services.items')}></div>
-      </div>
-    </section>
+<!-- SERVIÇOS: índice em linhas (ícone, nome, descrição), como a lista de serviços de um estúdio -->
+<section id="servicos" class="wrap section">
+  <header class="section-head" data-reveal>
+    <h2 data-i18n="services.title">{tx('services.title')}</h2>
+  </header>
+  <div class="services" data-list="services.items" set:html={list('services.items')}></div>
+</section>

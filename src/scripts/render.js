@@ -63,7 +63,6 @@ export const RENDER = {
     return `<li><strong class="stat-v">${value}</strong><span class="stat-l">${esc(s.label)}</span></li>`;
   }).join(''),
   'contact.points': (items) => items.map((p) => `<li>${ICONS.check}${esc(p)}</li>`).join(''),
-  'hero.points': (items) => items.map((p) => `<li>${ICONS.check}${esc(p)}</li>`).join(''),
   'services.items': (items) => items.map((s) => `
     <article class="service">
       <div class="service-icon">${ICONS[s.icon] || ''}</div>

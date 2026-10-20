@@ -48,12 +48,12 @@ export const I18N = {
     hero: {
       eyebrow: 'Estúdio web no Algarve',
       title: 'Sites que abrem a montra do seu negócio.',
-      sub: 'Criamos sites modernos, rápidos e bilingues para negócios locais do Algarve: restaurantes, alojamentos, lojas e serviços. Receba uma proposta com um rascunho do seu site, sem compromisso.',
-      cta1: 'Pedir proposta grátis', cta2: 'Ver serviços',
-      points: ['Português e inglês', 'Perfeito no telemóvel', 'Preço fixo, sem surpresas']
+      sub: 'Sites rápidos e bilingues para restaurantes, alojamentos, lojas e serviços do Algarve. Rascunho gratuito, sem compromisso.',
+      cta1: 'Pedir proposta grátis', cta2: 'Ver serviços'
     },
+    footer: { lead: 'Vamos falar do seu site?' },
     services: {
-      eyebrow: 'Serviços', title: 'Tudo o que um negócio local precisa para ser encontrado online.',
+      title: 'Tudo o que um negócio local precisa para ser encontrado online.',
       items: [
         { icon: 'site', title: 'Site profissional', text: 'Uma presença clara e cuidada: quem são, o que fazem, horários, contactos e localização no mapa.' },
         { icon: 'calendar', title: 'Reservas e pedidos', text: 'Formulários de reserva, pedidos de orçamento ou ligação direta ao WhatsApp para não perder clientes.' },
@@ -62,7 +62,7 @@ export const I18N = {
       ]
     },
     process: {
-      eyebrow: 'Como funciona', title: 'Do primeiro contacto ao site no ar, sem complicações.',
+      title: 'Do primeiro contacto ao site no ar, sem complicações.',
       steps: [
         { title: 'Conversa', text: 'Conte-nos sobre o seu negócio, os seus clientes e o que precisa.' },
         { title: 'Rascunho', text: 'Em 48 horas recebe um rascunho gratuito do site para ver antes de decidir.' },
@@ -80,7 +80,7 @@ export const I18N = {
       ]
     },
     plans: {
-      eyebrow: 'Planos', badge: 'Recomendado', cta: 'Pedir proposta', from: 'desde', perMonth: '/mês',
+      badge: 'Recomendado', cta: 'Pedir proposta', from: 'desde', perMonth: '/mês',
       creation: {
         title: 'Criação do site',
         sub: 'Pagamento único. Todos os sites são bilingues (PT/EN), rápidos e adaptados ao telemóvel.',
@@ -115,7 +115,7 @@ export const I18N = {
       ]
     },
     contact: {
-      eyebrow: 'Contacto', title: 'Fale-nos do seu negócio e receba um rascunho em 48 horas.',
+      title: 'Fale-nos do seu negócio e receba um rascunho em 48 horas.',
       sub: 'Basta o nome e a atividade do negócio. Preparamos o rascunho gratuito e uma proposta com preço fixo.',
       points: ['Rascunho grátis em 48 horas', 'Sem compromisso', 'Preço fixo, sem surpresas'],
       waCta: 'Falar no WhatsApp',
@@ -177,12 +177,12 @@ export const I18N = {
     hero: {
       eyebrow: 'Web studio in the Algarve',
       title: 'Websites that open the shop window to your business.',
-      sub: 'We build modern, fast, bilingual websites for local Algarve businesses: restaurants, holiday rentals, shops and services. Get a proposal with a draft of your site, no strings attached.',
-      cta1: 'Get a free proposal', cta2: 'See services',
-      points: ['Portuguese and English', 'Perfect on mobile', 'Fixed price, no surprises']
+      sub: 'Fast, bilingual websites for restaurants, holiday rentals, shops and services in the Algarve. Free draft, no strings attached.',
+      cta1: 'Get a free proposal', cta2: 'See services'
     },
+    footer: { lead: 'Shall we talk about your website?' },
     services: {
-      eyebrow: 'Services', title: 'Everything a local business needs to be found online.',
+      title: 'Everything a local business needs to be found online.',
       items: [
         { icon: 'site', title: 'Professional website', text: 'A clear, polished presence: who you are, what you do, opening hours, contact details and a map.' },
         { icon: 'calendar', title: 'Bookings and enquiries', text: 'Booking forms, quote requests or a direct WhatsApp link so you never miss a customer.' },
@@ -191,7 +191,7 @@ export const I18N = {
       ]
     },
     process: {
-      eyebrow: 'How it works', title: 'From first chat to a live website, without the hassle.',
+      title: 'From first chat to a live website, without the hassle.',
       steps: [
         { title: 'Chat', text: 'Tell us about your business, your customers and what you need.' },
         { title: 'Draft', text: 'Within 48 hours you get a free draft of your site to see before deciding.' },
@@ -209,7 +209,7 @@ export const I18N = {
       ]
     },
     plans: {
-      eyebrow: 'Plans', badge: 'Recommended', cta: 'Request a proposal', from: 'from', perMonth: '/month',
+      badge: 'Recommended', cta: 'Request a proposal', from: 'from', perMonth: '/month',
       creation: {
         title: 'Website creation',
         sub: 'One-off payment. Every site is bilingual (PT/EN), fast and mobile-friendly.',
@@ -244,7 +244,7 @@ export const I18N = {
       ]
     },
     contact: {
-      eyebrow: 'Contact', title: 'Tell us about your business and get a draft in 48 hours.',
+      title: 'Tell us about your business and get a draft in 48 hours.',
       sub: 'Just your business name and activity. We prepare the free draft and a fixed-price proposal.',
       points: ['Free draft in 48 hours', 'No strings attached', 'Fixed price, no surprises'],
       waCta: 'Chat on WhatsApp',

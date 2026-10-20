@@ -4,7 +4,6 @@ import { tx, list } from '../scripts/render.js';
 <!-- CONTACTO -->
     <section id="contacto" class="wrap section contact">
       <div class="contact-info" data-reveal>
-        <p class="eyebrow" data-i18n="contact.eyebrow">{tx('contact.eyebrow')}</p>
         <h2 data-i18n="contact.title">{tx('contact.title')}</h2>
         <p class="lead" data-i18n="contact.sub">{tx('contact.sub')}</p>
         <ul class="checks" data-list="contact.points" data-noreveal set:html={list('contact.points')}></ul>

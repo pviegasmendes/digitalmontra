@@ -1,14 +1,11 @@
 ---
 import { tx, list } from '../scripts/render.js';
 ---
-<!-- PORQUÊ -->
-    <section class="band-deep">
-      <div class="wrap section why">
-        <div class="why-intro" data-reveal>
-          <img src="/assets/emblem-white.png" alt="" width="72" height="72">
-          <h2 data-i18n="why.title">{tx('why.title')}</h2>
-          <p data-i18n="why.sub">{tx('why.sub')}</p>
-        </div>
-        <div class="why-list" data-list="why.items" set:html={list('why.items')}></div>
-      </div>
-    </section>
+<!-- PORQUÊ: manifesto em letra grande e três razões em colunas -->
+<section class="wrap section why">
+  <div class="why-intro" data-reveal>
+    <h2 data-i18n="why.title">{tx('why.title')}</h2>
+    <p class="manifesto" data-i18n="why.sub">{tx('why.sub')}</p>
+  </div>
+  <div class="why-list" data-list="why.items" set:html={list('why.items')}></div>
+</section>
